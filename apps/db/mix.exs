@@ -1,15 +1,14 @@
-defmodule StatementParser.Mixfile do
+defmodule Db.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :statement_parser,
+    [app: :db,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
      deps_path: "../../deps",
      lockfile: "../../mix.lock",
      elixir: "~> 1.4",
-     escript: [main_module: StatementParser],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -20,7 +19,8 @@ defmodule StatementParser.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger, :ecto, :postgrex],
+     mod: {Db.Application, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -38,8 +38,8 @@ defmodule StatementParser.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:csv, "~> 1.4.4"},
-      {:db, in_umbrella: true}
+      {:ecto, "~> 2.0"},
+      {:postgrex, "~> 0.11"}
     ]
   end
 end
