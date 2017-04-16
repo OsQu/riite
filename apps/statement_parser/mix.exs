@@ -37,6 +37,8 @@ defmodule StatementParser.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:csv, "~> 1.4.4"},
+    ]
   end
 end

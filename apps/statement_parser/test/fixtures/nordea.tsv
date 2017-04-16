@@ -1,0 +1,12 @@
+Tilinumero	FI42123456789
+
+Kirjauspäivä	Arvopäivä	Maksupäivä	Määrä	Saaja/Maksaja	Tilinumero	BIC	Tapahtuma	Viite	Maksajan viite	Viesti	Kortinnumero	Kuitti	
+
+01.03.2017	28.02.2017	28.02.2017	-62,41	Something something	123-123	NDEAFIHHXXX	Foobar	123123 123123					
+
+01.03.2017	01.03.2017	01.03.2017	-800,00	Foo Bar	FI56987654321	DABAFIHHXXX	Itsepalvelu			Barbar 			
+
+02.03.2017	31.03.2017	31.03.2017	1000,70	Evil Corporation			Pano		E1234567	2017 Salary 			
+
+04.03.2017	31.03.2017	31.03.2017	-7,74	Groceries			Korttiosto	4242424242		HELSINKI 	123456		
+
