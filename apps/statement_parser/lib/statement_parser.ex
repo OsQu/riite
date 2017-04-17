@@ -19,7 +19,8 @@ defmodule StatementParser do
         exit(:shutdown)
     end
 
-    statement = parser.parse(path)
+    statements = parser.parse(path)
+    CLI.start(statements)
   end
 
 
