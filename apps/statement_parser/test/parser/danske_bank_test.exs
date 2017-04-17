@@ -12,4 +12,12 @@ defmodule Parser.DanskeBankTest do
       %{date: ~D[2017-03-01], amount: ~M[-390], to_from: "Restaurant Oy              ))))"}
     ]
   end
+
+  test "valid?" do
+    danske_path = "../fixtures/danske_bank.csv" |> Path.expand(__DIR__)
+    nordea_path = "../fixtures/nordea.tsv" |> Path.expand(__DIR__)
+
+    assert Parser.DanskeBank.valid?(danske_path) == true
+    assert Parser.DanskeBank.valid?(nordea_path) == false
+  end
 end

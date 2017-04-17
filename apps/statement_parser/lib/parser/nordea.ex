@@ -2,6 +2,14 @@ defmodule Parser.Nordea do
   use Timex
   @date_format "%d.%m.%Y"
 
+  def valid?(path) do
+    path
+    |> File.stream!
+    |> Enum.take(1)
+    |> hd
+    |> String.starts_with?("Tilinumero")
+  end
+
   def parse(path) do
     csv = path
     |> File.stream!
