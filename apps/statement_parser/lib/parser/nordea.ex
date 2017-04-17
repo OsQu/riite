@@ -11,11 +11,10 @@ defmodule Parser.Nordea do
 
     csv
     |> Stream.drop(1) # Handle header
-    |> Enum.map(&map_row/1)
+    |> Enum.map(&parse_row/1)
   end
 
-  defp map_row([date, _, _, amount, to_from | _]) do
-
+  defp parse_row([date, _, _, amount, to_from | _]) do
     %{
       date: parse_date(date),
       amount: parse_amount(amount),
@@ -31,6 +30,7 @@ defmodule Parser.Nordea do
   defp parse_amount(amount) do
     {parsed_amount_float, ""} = amount
     |> String.replace(",", ".")
+    |> String.replace(" ", "")
     |> Float.parse
 
     parsed_amount_float * 100 |> round |> Money.new
