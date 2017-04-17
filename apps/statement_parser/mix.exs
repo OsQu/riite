@@ -39,7 +39,10 @@ defmodule StatementParser.Mixfile do
   defp deps do
     [
       {:csv, "~> 1.4.4"},
-      {:db, in_umbrella: true}
+      {:db, in_umbrella: true},
+      {:timex, "~> 3.0"},
+      {:tzdata, "~> 0.1.8", override: true},
+      {:money, "~> 1.2.1"}
     ]
   end
 end
