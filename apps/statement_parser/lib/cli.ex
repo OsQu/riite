@@ -8,7 +8,7 @@ defmodule CLI do
   end
 
   defp action(:prompt, statements) do
-    input = IO.gets("Actions:\n" <>
+    input = IO.gets("\nActions:\n" <>
       "  (r)ecord next statement\n" <>
       "  (e)dit statement\n" <>
       "  (s)top adding statements\n" <>
@@ -25,7 +25,8 @@ defmodule CLI do
   end
 
   defp action(:record, [statement_head | statement_tail]) do
-    IO.puts("record: #{inspect statement_head}")
+    Actions.Record.call(statement_head)
+
     action(:prompt, statement_tail)
   end
 
