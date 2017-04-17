@@ -9,9 +9,9 @@ defmodule Parser.DanskeBankTest do
     output = DanskeBank.parse(path)
 
     assert output == [
-      %{date: ~D[2017-03-07], amount: ~M[-850], to_from: "Food Place   ))))"},
-      %{date: ~D[2017-03-02], amount: ~M[142400], to_from: "Evil Corporation"},
-      %{date: ~D[2017-03-01], amount: ~M[-390], to_from: "Restaurant Oy              ))))"}
+      %Statement{date: ~D[2017-03-07], amount: ~M[-850], to_from: "Food Place   ))))"},
+      %Statement{date: ~D[2017-03-02], amount: ~M[142400], to_from: "Evil Corporation"},
+      %Statement{date: ~D[2017-03-01], amount: ~M[-390], to_from: "Restaurant Oy              ))))"}
     ]
   end
 

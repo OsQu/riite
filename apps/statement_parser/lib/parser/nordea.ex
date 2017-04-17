@@ -25,7 +25,7 @@ defmodule Parser.Nordea do
   end
 
   defp parse_row([date, _, _, amount, to_from | _]) do
-    %{
+    %Statement{
       date: parse_date(date),
       amount: parse_amount(amount),
       to_from: to_from

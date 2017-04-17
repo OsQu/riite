@@ -22,7 +22,7 @@ defmodule Parser.DanskeBank do
   end
 
   defp parse_row([date, to_from, amount | _]) do
-    %{
+    %Statement{
       date: parse_date(date),
       amount: parse_amount(amount),
       to_from: to_from
