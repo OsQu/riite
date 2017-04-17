@@ -1,4 +1,6 @@
 defmodule Parser.DanskeBank do
+  @behaviour Parser
+
   use Timex
   @date_format "%d.%m.%Y"
 

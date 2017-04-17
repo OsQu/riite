@@ -1,4 +1,6 @@
 defmodule Parser.Nordea do
+  @behaviour Parser
+
   use Timex
   @date_format "%d.%m.%Y"
 

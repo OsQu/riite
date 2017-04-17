@@ -2,9 +2,11 @@ defmodule Parser.DanskeBankTest do
   use ExUnit.Case
   import Money.Sigils
 
+  alias Parser.DanskeBank
+
   test "parsing Danske Bank statements" do
     path = "../fixtures/danske_bank.csv" |> Path.expand(__DIR__)
-    output = Parser.DanskeBank.parse(path)
+    output = DanskeBank.parse(path)
 
     assert output == [
       %{date: ~D[2017-03-07], amount: ~M[-850], to_from: "Food Place   ))))"},
@@ -17,7 +19,7 @@ defmodule Parser.DanskeBankTest do
     danske_path = "../fixtures/danske_bank.csv" |> Path.expand(__DIR__)
     nordea_path = "../fixtures/nordea.tsv" |> Path.expand(__DIR__)
 
-    assert Parser.DanskeBank.valid?(danske_path) == true
-    assert Parser.DanskeBank.valid?(nordea_path) == false
+    assert DanskeBank.valid?(danske_path) == true
+    assert DanskeBank.valid?(nordea_path) == false
   end
 end
