@@ -10,4 +10,15 @@ defmodule Riite.Category do
   def all do
     Category |> Repo.all
   end
+
+  def create(type) do
+    changeset(%Category{type: type})
+    |> Repo.insert
+  end
+
+  def changeset(category, params \\ %{}) do
+    category
+    |> Ecto.Changeset.cast(params, [:type])
+    |> Ecto.Changeset.validate_required([:type])
+  end
 end

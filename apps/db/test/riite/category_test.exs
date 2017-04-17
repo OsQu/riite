@@ -1,8 +1,7 @@
 defmodule Riite.CategoryTest do
   use ExUnit.Case
 
-  alias Riite.Repo
-  alias Riite.Category
+  alias Riite.{Repo,Category}
 
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
@@ -19,5 +18,11 @@ defmodule Riite.CategoryTest do
   test "Riite.Category.all()", %{all_categories: all_categories} do
     categories = Category.all()
     assert categories == all_categories
+  end
+
+  test "Riite.Category.create()" do
+    Category.create("new category")
+    category = Category |> Repo.get_by(type: "new category")
+    assert category.type == "new category"
   end
 end
